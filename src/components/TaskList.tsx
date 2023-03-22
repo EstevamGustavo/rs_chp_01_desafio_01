@@ -19,18 +19,12 @@ export function TaskList() {
     setTasks([
       ...tasks,
       {
-        id: autoIncrementId(tasks.at(-1)),
+        id: Math.floor(10000000 + Math.random() * 90000000),
         title: newTaskTitle,
         isComplete: false,
       },
     ]);
     setNewTaskTitle("");
-  }
-
-  function autoIncrementId(last: Task | undefined) {
-    if (last) {
-      return last.id + 1;
-    } else return 0;
   }
 
   function handleToggleTaskCompletion(id: number) {
